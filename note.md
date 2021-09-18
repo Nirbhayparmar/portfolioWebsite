@@ -1,0 +1,3 @@
+- things to be done are-
+  -- hamburger size
+  -- remove checkbox and add transition.

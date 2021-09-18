@@ -1,0 +1,71 @@
+:root {
+  --background: rgba(85, 214, 175, 0.95);
+  --body-color: rgb(125, 125, 125);
+}
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.content {
+  height: 200vh;
+  background-image: url(https://images.unsplash.com/photo-1631882377902-5f9c543dcb8e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2134&q=80);
+  background-color: var(--body-color);
+  background-blend-mode: multiply;
+  background-size: cover;
+  display: grid;
+}
+/*navigation styles start here*/
+header {
+  background-color: var(--background);
+  position: fixed;
+  text-align: center;
+  z-index: 900;
+  width: 100%;
+}
+.logo {
+  font-size: 4em;
+}
+nav {
+  position: absolute;
+  text-align: left;
+  top: 100%;
+  left: 0;
+  background-color: var(--background);
+  width: 100%;
+  display: none;
+}
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+nav li {
+  margin-bottom: 1em;
+  margin-left: 1em;
+}
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+nav a:hover {
+  color: rgba(0, 0, 0, 1);
+}
+span {
+  background-color: blue;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+span div {
+  width: 1em;
+  height: 2px;
+  background-color: rgba(255, 255, 255, 1);
+  margin: 2px;
+  border-radius: 1px;
+}
+.nav-toggle:checked ~ nav {
+  display: block;
+}
