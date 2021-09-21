@@ -1,3 +1,3 @@
 - things to be done are-
-  -- hamburger size
-  -- remove checkbox and add transition.
+  -- now hero section and image
+  -- content

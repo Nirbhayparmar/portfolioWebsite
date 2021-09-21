@@ -20,12 +20,13 @@
 header {
   background-color: var(--background);
   position: fixed;
+  font-family: "Fira Sans Extra Condensed", sans-serif;
   text-align: center;
   z-index: 900;
   width: 100%;
 }
 .logo {
-  font-size: 4em;
+  font-size: 3em;
 }
 nav {
   position: absolute;
@@ -34,7 +35,30 @@ nav {
   left: 0;
   background-color: var(--background);
   width: 100%;
+  transform: scale(1, 0);
+  transform-origin: top;
+  transition: transform 400ms ease-in-out;
+}
+.nav-toggle {
   display: none;
+}
+.nav-toggle-lable {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-left: 1em;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.nav-toggle-lable div {
+  width: 2em;
+  height: 1px;
+  margin: 0.2em;
+  border: 2px solid rgb(240, 255, 255);
+  border-radius: 1px;
+  background-color: rgb(240, 255, 255);
 }
 nav ul {
   margin: 0;
@@ -48,24 +72,70 @@ nav li {
 nav a {
   color: white;
   text-decoration: none;
-  font-size: 1.2rem;
+  font-size: 1em;
+  opacity: 0;
+  transition: opacity 150ms ease-in-out;
 }
 nav a:hover {
   color: rgba(0, 0, 0, 1);
 }
-span {
-  background-color: blue;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-}
-span div {
-  width: 1em;
-  height: 2px;
-  background-color: rgba(255, 255, 255, 1);
-  margin: 2px;
-  border-radius: 1px;
-}
+
 .nav-toggle:checked ~ nav {
-  display: block;
+  transform: scale(1, 1);
+}
+.nav-toggle:checked ~ nav a {
+  opacity: 1;
+  transition: opacity 250ms ease-in-out 250ms;
+}
+
+/* for larger screens */
+
+@media screen and (min-width: 800px) {
+  .nav-toggle-lable {
+    display: none;
+  }
+  header {
+    display: grid;
+    grid-template-columns: 0.5fr 1fr 2fr 0.5fr;
+  }
+  .logo {
+    text-align: left;
+    grid-column: 2 /3;
+  }
+  nav {
+    all: unset;
+    grid-column: 3/4;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  nav ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+  nav li {
+    margin: 0em 0em 0em 3em;
+  }
+  nav a {
+    opacity: 1;
+    font-size: 1.3em;
+    position: relative;
+  }
+  nav a::before {
+    content: "";
+    display: block;
+    height: 5px;
+    position: absolute;
+    top: -0.55em;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 1);
+    transform: scale(0, 1);
+    transition: transform ease-in-out 250ms;
+  }
+
+  nav a:hover::before {
+    transform: scale(1, 1);
+  }
 }
