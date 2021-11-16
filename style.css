@@ -1,6 +1,7 @@
 :root {
   --background: rgba(85, 214, 175, 0.95);
   --body-color: rgb(125, 125, 125);
+  --light-color:rgb(240, 255, 255);
 }
 * {
   margin: 0px;
@@ -8,14 +9,6 @@
   box-sizing: border-box;
 }
 
-.content {
-  height: 200vh;
-  background-image: url(https://images.unsplash.com/photo-1631882377902-5f9c543dcb8e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2134&q=80);
-  background-color: var(--body-color);
-  background-blend-mode: multiply;
-  background-size: cover;
-  display: grid;
-}
 /*navigation styles start here*/
 header {
   background-color: var(--background);
@@ -56,9 +49,9 @@ nav {
   width: 2em;
   height: 1px;
   margin: 0.2em;
-  border: 2px solid rgb(240, 255, 255);
+  border: 2px solid var(--light-color);
   border-radius: 1px;
-  background-color: rgb(240, 255, 255);
+  background-color: var(--light-color);
 }
 nav ul {
   margin: 0;
@@ -86,6 +79,38 @@ nav a:hover {
 .nav-toggle:checked ~ nav a {
   opacity: 1;
   transition: opacity 250ms ease-in-out 250ms;
+}
+
+/* for body section*/
+.content {
+  height: 200vh;
+  background-color: var(--body-color);
+  background-blend-mode: multiply;
+  background-size: cover;
+  display: grid;
+  grid-template-columns: repeat(12,1fr);
+}
+
+.about{
+  
+  grid-column: 2/span 10;
+  
+}
+
+.image{
+  margin: 4em 0.5em 0.5em 0.5em;
+  padding: 0.5em;
+}
+/*testing small image size for mobile devices*/
+
+.profile{
+  max-width: 100%;  
+  height: auto;
+}
+
+.aboutText{
+  margin: 0.5em;
+  padding: 0.5em;
 }
 
 /* for larger screens */
