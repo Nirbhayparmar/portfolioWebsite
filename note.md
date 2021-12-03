@@ -1,7 +1,12 @@
 # things to be done
 - Hero section 
 - content for hero section complete
+-- completed for mobile version only
+-- pc version remaining
 - skills section with icons Complete
-- https://devicon.dev/
+-- pc version remaining
+-- source https://devicon.dev/
 - projects section with images and links
+-- in project section the layout is ready only actual data and links are remaining
+-- pc version remaining
 - footer and contact form

@@ -94,6 +94,7 @@ nav a:hover {
 .about{
   
   grid-column: 2/span 10;
+  border: 2px dashed black;
   
 }
 
@@ -119,6 +120,7 @@ nav a:hover {
   grid-template-columns: repeat(10,1fr);
   margin: 0.5em;
   padding:0.5em;
+  border: 2px dashed black;
 }
 .skilltitle{
   grid-column: span 10;
@@ -131,6 +133,65 @@ nav a:hover {
 }
 .icons{
   margin:1em 0 1em 0;
+}
+/*------------------------project section----------------------------------*/
+.projects{
+  grid-column: 2/span 10;
+  
+  /* background-color: white; */
+  /* border: 2px dashed black; */
+}
+
+/*--cards for projects--*/
+.cards{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.card{
+  display: flex;
+  flex-direction: column;
+  flex:1 0 300px;
+  padding: 0.5em;
+  margin: 0.5em;
+  overflow: hidden;
+  background: var(--light-color)  ;
+  max-width: 364px;
+  border-radius: 10px;
+}
+.card_image{
+  flex:0 0 250px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 10px;
+}
+.card_content{
+  display:flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 0.5em;
+}
+.card_title{
+  margin-bottom:0.5em;
+}
+.card_details{
+  margin-bottom:0.5em;
+
+}
+.link{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:var(--background);
+  border-radius: 10px;
+  text-decoration: none;
+  width: 150px;
+  margin-top: auto;
+  flex:0 0 40px;
+}
+.ltext{
+  font-size: 1.5em;
 }
 
 /* -----------------------for larger screens ----------------------------------*/
