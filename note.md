@@ -1,7 +1,7 @@
 # things to be done
 - Hero section 
 - content for hero section complete
--- completed for mobile version only
+-- completed for mobile version only with flex
 -- pc version remaining
 - skills section with icons Complete
 -- pc version remaining
