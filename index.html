@@ -22,9 +22,9 @@
       <nav>
         <ul>
           <li><a href="#">Home</a></li>
-          <li><a href="#">Skills</a></li>
-          <li><a href="#">Projects</a></li>
-          <li><a href="#">Contact me</a></li>
+          <li><a href="#skill">Skills</a></li>
+          <li><a href="#project">Projects</a></li>
+          <li><a href="#contact">Contact me</a></li>
         </ul>
       </nav>
       <label for="nav-toggle" class="nav-toggle-lable"
@@ -36,23 +36,15 @@
     <!-- ---------------------main content starts here-------------------- -->
     <div class="content">
       <!---------------------about section starts here--------------------->
-      <!-- <div class="about"> this original about section without the flex
-        <div class="image">
-          <img src="Nirbhay(1).jpg" alt="Nirbhay" class="profile">
-        </div>
-        <div class="aboutText">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus velit labore a molestias, neque corrupti, deleniti, enim error ipsam deserunt consectetur. Fugiat, quam ipsa facere obcaecati eveniet deleniti recusandae. Natus excepturi quia aut laudantium veniam delectus quisquam tempore reprehenderit quis placeat at consectetur modi facere atque sunt, amet harum corporis!
-        </div>
-      </div> -->
-
       <!----now new about section 2.0 design with flex -------------------->
 
       <div class="about">
         <div class="about_side">
           <img src="Nirbhay(1).jpg" alt="Nirbhay's profile picture" class="profile">
           <ul class="social_list">
-            <li class="social_item"><a aria-label="twitter" href="#" class="social_link"></a><i class="fa-brands fa-twitter-square"></i></li>
+            <li class="social_item"><a aria-label="twitter" href="#" class="social_link"><i class="fa-brands fa-twitter-square"></i></a></li>
             <li class="social_item"><a aria-label="linkedin" href="#" class="social_link"><i class="fa-brands fa-linkedin"></i></a></li>
+            <li class="social_item"><a aria-lebel="GitHub" href="#" class="social_link"><i class="fa-brands fa-github"></i></a></li>
             <li class="social_item"><a aria-lebel="dev.to" href="#" class="social_link"><i class="fa-brands fa-dev"></i></a></li>
           </ul>
         </div>
@@ -68,23 +60,26 @@
       <!---------------------about section ends here--------------------->
 
       <!---------------------skills section starts here--------------------->
-      <div class="skills">
-        <div class="skilltitle">Programming languages and tools</div>
-        <div class="iconholder">
+      <div class="skills" id="skill">
+        <h2 class="skilltitle">Programming languages and tools I know</h2>
+        <div class="iconholder1">
           <!--c++--><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" class="icons" />
-        <!--c--><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" class="icons"/>
-        <!--html5--><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original-wordmark.svg" class="icons" />
-        <!--css--><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original-wordmark.svg" class="icons" />
-        <!--js--><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" class="icons"/>
-        <!--sql--><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original-wordmark.svg" class="icons"/>
-        <!--git--><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original-wordmark.svg" class="icons"/>
-        <!--vscode--><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" class="icons" />
-        <!--linux--> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" class="icons" />  
+          <!--html5--><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original-wordmark.svg" class="icons" />
+          <!--js--><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" class="icons"/>
+          <!--git--><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original-wordmark.svg" class="icons"/>
+          <!--linux--> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" class="icons" />  
+        </div>
+        <div class="iconholder2">
+          <!--c--><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" class="icons"/>
+          <!--css--><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original-wordmark.svg" class="icons" />
+          <!--sql--><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original-wordmark.svg" class="icons"/>
+          <!--vscode--><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" class="icons" />
         </div>
       </div>
       <!---------------------skills section ends here--------------------->
       <!---------------------project section starts here------------------>
-      <div class="projects">
+      <div class="projects" id="project">
+        <h2 class="project_heading">some of my projects</h2>
         <section class="cards">
           <div class="card">
             <div class="card_image" style="background:url('i1.jpg');"></div>
@@ -141,7 +136,17 @@
     </div>
     <!-- ---------------------main content ends here-------------------- -->
     <!-- ---------------------footer starts here------------------------- -->
-    <footer>footer goes here</footer>
+    <footer class="footer_section" id="contact">
+      
+      <div class="contact_info">
+        <p>
+          Let's have a chat at
+        </p>
+        <p><i class="fa-regular fa-envelope"></i> niravnirbhay94@gmail.com</p>
+      </div>
+      
+      <div class="self"><p>Made by Nirbhay Parmar <a href="" style="text-decoration: none;"><i class="fa-brands fa-github"></i></a></p></div>
+    </footer>
     <!-- ---------------------footer ends here------------------------- -->
   </body>
 </html>

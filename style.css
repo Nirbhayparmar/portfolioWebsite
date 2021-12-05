@@ -92,29 +92,6 @@ nav a:hover {
   display: grid;
   grid-template-columns: repeat(12,1fr);
 }
-
-/*this is original design without flex properties
-/* .about{
-  grid-column: 2/span 10;
-  border: 2px dashed black;
-  
-}
-
-.image{
-  margin: 4em 0.5em 0.5em 0.5em;
-  padding: 0.5em;
-}
-/*-------------------------testing small image size for mobile devices----------*/
-
-/* .profile{
-  max-width: 100%;  
-  height: auto;
-}
-
-.aboutText{
-  margin: 0.5em;
-  padding: 0.5em;
-} */ 
 /*--------------------about section 2.0 design----------------------------------*/
 .about{
   grid-column: 2/span 10;
@@ -127,7 +104,7 @@ nav a:hover {
   background:var(--light-color);
   color:black;
   text-align: center;
-  width:70%;
+  width:80%;
   max-width: 750px;
 }
 
@@ -173,34 +150,44 @@ nav a:hover {
   margin-bottom: 0.5em;
   font-size: 1.4em;
 }
+.about_details{
+  opacity: 0.8;
+}
 /*---------------------------skill section--------------------------------------*/
 .skills{
   grid-column: 2/span 10;
   display: grid;
   grid-template-columns: repeat(10,1fr);
-  margin: 0.5em;
+  margin: 4em 0.5em 0.5em 0.5em;
   padding:0.5em;
-  border: 2px dashed black;
+  
 }
 .skilltitle{
   grid-column: span 10;
   justify-self: center;
-  font-size: 1.6em; 
+  font-size: 1.6em;
+  text-align: center;
 }
-.iconholder{
- grid-column: 4/span 4;
+.iconholder1{
+  margin-top: 1em;
+  grid-column: 1/span 4;
+}
+.iconholder2{
+  margin-top: 1em;
+  grid-column: 7/span 4;
 }
 .icons{
   margin:1em 0 1em 0;
 }
 /*------------------------project section----------------------------------*/
 .projects{
+  margin-top: 4em;
   grid-column: 2/span 10;
-  
-  /* background-color: white; */
-  /* border: 2px dashed black; */
 }
-
+.project_heading{
+  text-align: center;
+  font-size: 1.6em;
+}
 /*--cards for projects--*/
 .cards{
   display: flex;
@@ -252,8 +239,28 @@ nav a:hover {
 .ltext{
   font-size: 1.5em;
 }
+/*----------------------footer section---------------*/
 
-/* -----------------------for larger screens ----------------------------------*/
+.footer_section{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: var(--body-color);
+  padding:5em 0 1em 0;
+  text-align: center;
+}
+.contact_info{
+  font-size: 2em;
+  margin: 0 1em 1em 1em;
+}
+hr{
+  max-width: 100%;
+}
+.self{
+  margin: 1em 0 0 0;
+}
+
+/* -----------------for larger screens------------*/
 
 @media screen and (min-width: 800px) {
   .nav-toggle-lable {
