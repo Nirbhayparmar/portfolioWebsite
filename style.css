@@ -10,7 +10,7 @@
 }
 
 body{
-  font-family: "Fira Sans Extra Condensed", sans-serif;
+  font-family: "Fira Sans", sans-serif;
 }
 /*----------------------------navigation styles start here----------------------*/
 header {
@@ -22,6 +22,7 @@ header {
   width: 100%;
 }
 .logo {
+  font-family:"Fira Sans Extra Condensed", sans-serif;
   font-size: 3em;
 }
 nav {
@@ -105,7 +106,7 @@ nav a:hover {
   color:black;
   text-align: center;
   width:80%;
-  max-width: 750px;
+  max-width: 850px;
   box-shadow:0 0 30px rgba(0, 0, 0, 0.5) ;
 }
 
@@ -149,10 +150,11 @@ nav a:hover {
 }
 .about_occupation{
   margin-bottom: 0.5em;
-  font-size: 1.4em;
+  font-size: 1.5em;
 }
 .about_details{
   opacity: 0.8;
+  font-size: 1.1em;
 }
 /*---------------------------skill section--------------------------------------*/
 .skills{
@@ -294,6 +296,7 @@ nav a:hover {
   text-align: center;
 }
 .contact_info{
+  font-family:"Fira Sans Extra Condensed", sans-serif;
   font-size: 1.5em;
   margin: 0 1em 1em 1em;
 }
@@ -360,12 +363,20 @@ hr{
   /*-------------About section starts here---------*/
   .about{
     flex-direction: row;
-    margin-top: 12em;
+    margin-top: 6em;
     padding: 2.5em;
+  }
+  .profile{
+    max-width: 250px;
+    height: auto;
+  }
+  .social_list{
+    font-size: 2.5em;
+    width: 250px;
   }
   .about_main{
     text-align: left;
-    margin-left: 2em;
+    margin-left: 2.5em;
   }
   .about_name::after{
     margin-left: 0px;
