@@ -223,6 +223,21 @@ nav a:hover {
 .icons{
   margin:1em 0 1em 0;
 }
+/*-----------------------certificate section-------------------------------*/
+.certificate{
+  grid-column: 2/span 10;
+  grid-row: 3;
+}
+.certificatetitle{
+  text-align: center;
+  font-size: 2em;
+  margin-bottom: 1.5em;
+}
+.certi_title{
+  color: white;
+  text-align: center;
+}
+
 /*------------------------project section----------------------------------*/
 .projects{
   margin-top: 4em;
@@ -249,6 +264,9 @@ nav a:hover {
   background: var(--light-color)  ;
   max-width: 364px;
   border-radius: 10px;
+}
+.certi_card{
+  background: black; /* for the certificate background*/
 }
 .card_image{
   flex:0 0 250px;
