@@ -254,7 +254,7 @@ nav a:hover {
   flex:0 0 250px;
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position:left;
   border-radius: 10px;
 }
 .card_content{
@@ -264,9 +264,12 @@ nav a:hover {
   padding: 0.5em;
 }
 .card_title{
+  font-size: 1.2em;
+  font-weight: bold;
   margin-bottom:0.5em;
 }
 .card_details{
+  font-size: 1em;
   margin-bottom:0.5em;
 
 }
