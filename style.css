@@ -84,6 +84,10 @@ nav a:hover {
   opacity: 1;
   transition: opacity 250ms ease-in-out 250ms;
 }
+.logo_link{
+  color: black;
+  text-decoration: none;
+}
 
 /*--------------------- for body section-----------------------------------------*/
 .content {
