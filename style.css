@@ -133,6 +133,14 @@ nav a:hover {
 .social_link{
   color: black;
 }
+/*-----------hover effects for the social icons------------*/
+.fa-brands{
+  transition: ease-in-out 0.2s;
+}
+.fa-brands:hover{
+  transform: scale(1.2);
+}
+/*-----------hover effects for the social icons ends------------*/
 .about_main{
   display: flex;
   flex-direction: column;
@@ -174,15 +182,17 @@ nav a:hover {
   font-size: 2em;
   text-align: center;
 }
-/* .iconholder1{
-  margin-top: 1em;
-  grid-column: 1/span 4;
-}
-.iconholder2{
-  margin-top: 1em;
-  grid-column: 7/span 4;
-} */
+
 /* new style for skill icons */
+
+/*-----------hover effects for the skills icons------------*/
+.icon{
+  transition: ease-in-out 0.2s;
+}
+.icon:hover{
+  transform: scale(1.1);
+}
+/*-----------hover effects for the skills icons ends------------*/
 .cpp{
   margin-top: 1em;
   grid-column: 1/span 4;
@@ -268,6 +278,10 @@ nav a:hover {
   background: var(--light-color)  ;
   max-width: 364px;
   border-radius: 10px;
+  transition: ease-in-out 0.3s;  /*----hover effects for the cards------*/
+}
+.card:hover{
+  transform: scale(1.05);
 }
 .certi_card{
   background: black; /* for the certificate background*/
@@ -295,6 +309,7 @@ nav a:hover {
   margin-bottom:0.5em;
 
 }
+
 .link{
   display: flex;
   align-items: center;
@@ -308,6 +323,7 @@ nav a:hover {
 }
 .ltext{
   font-size: 1.5em;
+ 
 }
 /*----------------------footer section---------------*/
 

@@ -12,3 +12,8 @@
 -- in project section the layout is ready only actual data and links are remaining
 -- pc version remaining
 - footer and contact form
+
+# done, but now refactoring is to be done regularly
+- hover effect added to icons and cards
+- live link to the projects are added
+- only link to certificates remains 
