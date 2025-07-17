@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Nirbhay Parmar - Portfolio Website">
+    <title>Nirbhay Parmar</title>
+    <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <style>
+        .game-of-life-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.15;
+            background-color: #000;
+        }
+
+        /* Content overlay for better readability */
+        .content-overlay {
+            position: relative;
+            z-index: 1;
+            background: linear-gradient(to bottom, rgba(17, 24, 39, 0.7), rgba(17, 24, 39, 0.8));
+        }
+    </style>
+</head>
+
+<body class="bg-gradient-to-br from-gray-900 to-black text-gray-100 min-h-screen overflow-x-hidden">
+    <!-- Navigation -->
+    <canvas id="gameOfLife" class="game-of-life-canvas"></canvas>
+    <div class="fixed top-0 left-0 w-full z-50">
+        <div id="progress-bar" class="h-1 bg-indigo-500 transition-all duration-300" style="width: 0%"></div>
+    </div>
+
+    <nav class="fixed w-full z-50 bg-gray-900/80 backdrop-blur-lg border-b border-indigo-500/30" id="navbar">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="#" class="text-xl font-bold text-indigo-500 hover:scale-110 transition-transform"
+                    id="logo">NP</a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#about" class="nav-link text-gray-300 hover:text-indigo-500 transition-colors">About</a>
+                    <a href="#projects"
+                        class="nav-link text-gray-300 hover:text-indigo-500 transition-colors">Projects</a>
+                    <a href="#contact"
+                        class="nav-link text-gray-300 hover:text-indigo-500 transition-colors">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="min-h-screen flex items-center justify-center pt-20">
+        <div class="container mx-auto px-6 text-center">
+            <img src="./assets/pfp.jpg" alt="Nirbhay Parmar"
+                class="w-56 h-56 rounded-full mx-auto mb-8 border-2 border-indigo-500" data-aos="fade-down">
+            <h1 class="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-indigo-500 to-purple-500 bg-clip-text text-transparent"
+                data-aos="fade-up" data-aos-delay="200">
+                Nirbhay Parmar
+            </h1>
+            <p class="text-xl text-gray-400 mb-8" data-aos="fade-up" data-aos-delay="400">
+                Full Stack Developer & Designer
+            </p>
+            <div class="flex justify-center gap-4" data-aos="fade-up" data-aos-delay="600">
+                <a href="#projects"
+                    class="px-6 py-2 bg-indigo-500 rounded-lg hover:bg-indigo-600 transition-colors transform hover:scale-105">
+                    View Projects
+                </a>
+                <a href="#contact"
+                    class="px-6 py-2 border border-indigo-500 rounded-lg hover:bg-indigo-500/10 transition-all transform hover:scale-105">
+                    Contact Me
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="py-20">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-8 text-center text-indigo-500" data-aos="fade-down">About Me</h2>
+            <div class="max-w-2xl mx-auto bg-gray-800/50 p-6 rounded-lg border border-indigo-500/30 hover:shadow-lg hover:shadow-indigo-500/20 transition-all duration-300"
+                data-aos="fade-up">
+                <p class="text-gray-300 leading-relaxed">
+                    I am currently in my 4th year of engineering in Information and
+                    Communication Technology from Pandit Deendayal Energy University. I
+                    am a web developer and aspire to be a good software developer. I
+                    know C++ and do Data Structures and Algorithm problems on
+                    <a class="text-indigo-700" href="https://auth.geeksforgeeks.org/user/niravnirbhay94"
+                        target="_blank">GFG</a>
+                    and
+                    <a class="text-indigo-700" href="https://www.hackerrank.com/Nirbhay_Parmar"
+                        target="_blank">Hackerrank</a>
+                    to improve my problem-solving skills. <br /><br />
+                    I love to write technical blogs on my dev.to handle, which is viewed
+                    by more than 5000 people online. I want to help the community by
+                    contributing to open-source software projects. I am also part of our
+                    college's NCC unit in which we participate in drill practise every
+                    Friday. NCC helps me in enhancing my mental and physical strength.
+                    NCC also develops team working skills.
+                    <br /><br />
+                    Apart from it, I am a vivid reader. I love to read science magazines
+                    like
+                    <a class="text-indigo-700" href="https://www.harshalpublications.in/gujarati-edition/"
+                        target="_blank">safari</a>
+                    in Gujarati and natural geographic magazine. I also love to read
+                    Hindi and Gujarati novels.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <!-- Modified Projects Section with Filtering -->
+    <section id="projects" class="py-20 bg-gray-900/50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-8 text-center text-indigo-500" data-aos="fade-down">Projects</h2>
+
+            <!-- Filter Buttons -->
+            <div class="flex flex-wrap justify-center gap-4 mb-12" data-aos="fade-up">
+                <button
+                    class="filter-btn active px-4 py-2 rounded-lg bg-indigo-500 text-white hover:bg-indigo-600 transition-colors"
+                    data-filter="all">All</button>
+                <button
+                    class="filter-btn px-4 py-2 rounded-lg bg-gray-800/50 border border-indigo-500/30 hover:bg-indigo-500/10 transition-colors"
+                    data-filter="frontend">Frontend</button>
+                <button
+                    class="filter-btn px-4 py-2 rounded-lg bg-gray-800/50 border border-indigo-500/30 hover:bg-indigo-500/10 transition-colors"
+                    data-filter="ML">ML</button>
+                <button
+                    class="filter-btn px-4 py-2 rounded-lg bg-gray-800/50 border border-indigo-500/30 hover:bg-indigo-500/10 transition-colors"
+                    data-filter="API">API</button>
+                <button
+                    class="filter-btn px-4 py-2 rounded-lg bg-gray-800/50 border border-indigo-500/30 hover:bg-indigo-500/10 transition-colors"
+                    data-filter="OS">OS</button>
+            </div>
+
+            <!-- Projects Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="project-card" data-category="frontend" data-aos="fade-up">
+                    <div
+                        class="bg-gray-800/50 rounded-lg overflow-hidden border border-indigo-500/30 transform hover:scale-105 transition-all duration-300">
+                        <img src="./assets/p2.png" alt="Project 1" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2 text-indigo-400">Gradient Generator</h3>
+                            <p class="text-gray-400 mb-4">An open source CSS gradient background generator.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-2 py-1 text-sm bg-indigo-500/20 text-indigo-300 rounded">HTML</span>
+                                <span class="px-2 py-1 text-sm bg-indigo-500/20 text-indigo-300 rounded">CSS</span>
+                                <span class="px-2 py-1 text-sm bg-indigo-500/20 text-indigo-300 rounded">JS</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <a target="_blank" href="https://nirbhayparmar.github.io/gradientiser-BgGenerator/"
+                                    class="text-indigo-400 hover:text-indigo-300">View Live</a>
+                                <a target="_blank" href="https://github.com/Nirbhayparmar/gradientiser-BgGenerator"
+                                    class="text-gray-400 hover:text-gray-300">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="frontend" data-aos="fade-up" data-aos-delay="200">
+                    <div
+                        class="bg-gray-800/50 rounded-lg overflow-hidden border border-indigo-500/30 transform hover:scale-105 transition-all duration-300">
+                        <img src="./assets/p6.png" alt="OS Lab Project" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2 text-indigo-400">Postcraft</h3>
+                            <p class="text-gray-400 mb-4">
+                                AI-Powered Social Media Content Creation for LinkedIn, Twitter
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-2 py-1 text-sm bg-indigo-500/20 text-indigo-300 rounded">Next.Js</span>
+                                <span class="px-2 py-1 text-sm bg-indigo-500/20 text-indigo-300 rounded">Flask</span>
+                                <span class="px-2 py-1 text-sm bg-indigo-500/20 text-indigo-300 rounded">MongoDB</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <a target="_blank" href="https://postcraft-lab.vercel.app/"
+                                    class="text-indigo-400 hover:text-indigo-300">View Live</a>
+                                <a target="_blank" href="https://github.com/Naman0807/AI-post-gen"
+                                    class="text-gray-400 hover:text-gray-300">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card" data-category="ML" data-aos="fade-up" data-aos-delay="100">
+                    <div
+                        class="bg-gray-800/50 rounded-lg overflow-hidden border border-indigo-500/30 transform hover:scale-105 transition-all duration-300">
+                        <img src="./assets/p3.png" alt="Project 2" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2 text-indigo-400">Self Driving Car</h3>
+                            <p class="text-gray-400 mb-4">Simple Vanilla JavaScript Simulator for Self Driving Car.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-2 py-1 text-sm bg-indigo-500/20 text-indigo-300 rounded">HTML</span>
+                                <span class="px-2 py-1 text-sm bg-indigo-500/20 text-indigo-300 rounded">CSS</span>
+                                <span class="px-2 py-1 text-sm bg-indigo-500/20 text-indigo-300 rounded">JS</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <a target="_blank" href="https://simulator.nirbhayparmar.com/"
+                                    class="text-indigo-400 hover:text-indigo-300">View Live</a>
+                                <a target="_blank" href="https://github.com/Nirbhayparmar/SimulatorSelfDrivingCar"
+                                    class="text-gray-400 hover:text-gray-300">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card" data-category="API" data-aos="fade-up" data-aos-delay="200">
+                    <div
+                        class="bg-gray-800/50 rounded-lg overflow-hidden border border-indigo-500/30 transform hover:scale-105 transition-all duration-300">
+                        <img src="./assets/p4.png" alt="Project 3" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2 text-indigo-400">NASA APOD</h3>
+                            <p class="text-gray-400 mb-4">Fetch the APOD for the choosen date from the NASA's database.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-2 py-1 text-sm bg-indigo-500/20 text-indigo-300 rounded">HTML</span>
+                                <span class="px-2 py-1 text-sm bg-indigo-500/20 text-indigo-300 rounded">CSS</span>
+                                <span class="px-2 py-1 text-sm bg-indigo-500/20 text-indigo-300 rounded">JS</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <a target="_blank" href="https://nirbhayparmar.github.io/nasaAPOD/"
+                                    class="text-indigo-400 hover:text-indigo-300">View Live</a>
+                                <a target="_blank" href="https://github.com/Nirbhayparmar/nasaAPOD"
+                                    class="text-gray-400 hover:text-gray-300">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="OS" data-aos="fade-up" data-aos-delay="200">
+                    <div
+                        class="bg-gray-800/50 rounded-lg overflow-hidden border border-indigo-500/30 transform hover:scale-105 transition-all duration-300">
+                        <img src="./assets/P5.png" alt="OS" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2 text-indigo-400">OS</h3>
+                            <p class="text-gray-400 mb-4">
+                                Operating System concepts like scheduling, memory
+                                management.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-2 py-1 text-sm bg-indigo-500/20 text-indigo-300 rounded">C</span>
+                                <span class="px-2 py-1 text-sm bg-indigo-500/20 text-indigo-300 rounded">C++</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <a target="_blank" href="https://nirbhayparmar.github.io/osLabProject/"
+                                    class="text-indigo-400 hover:text-indigo-300">View Live</a>
+                                <a target="_blank" href="https://github.com/Nirbhayparmar/osLabProject"
+                                    class="text-gray-400 hover:text-gray-300">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="py-20 bg-gray-900/30">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-12 text-center text-indigo-500" data-aos="fade-down">Skills & Technologies
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Frontend Skills -->
+                <div class="bg-gray-800/50 p-6 rounded-lg border border-indigo-500/30 transform hover:scale-105 transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/20"
+                    data-aos="fade-up">
+                    <div class="flex items-center mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-indigo-400" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                        </svg>
+                        <h3 class="text-xl font-semibold ml-3 text-gray-200">Frontend Development</h3>
+                    </div>
+                    <p class="text-gray-400">HTML5, CSS3, JavaScript, React, Vue.js</p>
+                </div>
+
+                <!-- Backend Skills -->
+                <div class="bg-gray-800/50 p-6 rounded-lg border border-indigo-500/30 transform hover:scale-105 transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/20"
+                    data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-center mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-indigo-400" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2" />
+                        </svg>
+                        <h3 class="text-xl font-semibold ml-3 text-gray-200">Backend Development</h3>
+                    </div>
+                    <p class="text-gray-400">Node.js, Python, Java, REST APIs</p>
+                </div>
+
+                <!-- Database Skills -->
+                <div class="bg-gray-800/50 p-6 rounded-lg border border-indigo-500/30 transform hover:scale-105 transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/20"
+                    data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex items-center mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-indigo-400" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 7v10c0 2 1 3 3 3h10c2 0 3-1 3-3V7c0-2-1-3-3-3H7c-2 0-3 1-3 3z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7h16" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 11h16" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 15h16" />
+                        </svg>
+                        <h3 class="text-xl font-semibold ml-3 text-gray-200">Database</h3>
+                    </div>
+                    <p class="text-gray-400">MongoDB, PostgreSQL, MySQL</p>
+                </div>
+
+                <!-- Design Skills -->
+                <div class="bg-gray-800/50 p-6 rounded-lg border border-indigo-500/30 transform hover:scale-105 transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/20"
+                    data-aos="fade-up" data-aos-delay="300">
+                    <div class="flex items-center mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-indigo-400" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+                        </svg>
+                        <h3 class="text-xl font-semibold ml-3 text-gray-200">UI/UX Design</h3>
+                    </div>
+                    <p class="text-gray-400">Tailwind CSS</p>
+                </div>
+
+                <!-- Web Technologies -->
+                <div class="bg-gray-800/50 p-6 rounded-lg border border-indigo-500/30 transform hover:scale-105 transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/20"
+                    data-aos="fade-up" data-aos-delay="400">
+                    <div class="flex items-center mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-indigo-400" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+                        </svg>
+                        <h3 class="text-xl font-semibold ml-3 text-gray-200">Web Technologies</h3>
+                    </div>
+                    <p class="text-gray-400">AWS, Docker, CI/CD, Git</p>
+                </div>
+
+                <!-- Tools & Others -->
+                <div class="bg-gray-800/50 p-6 rounded-lg border border-indigo-500/30 transform hover:scale-105 transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/20"
+                    data-aos="fade-up" data-aos-delay="500">
+                    <div class="flex items-center mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-indigo-400" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
+                        </svg>
+                        <h3 class="text-xl font-semibold ml-3 text-gray-200">Tools & Others</h3>
+                    </div>
+                    <p class="text-gray-400">Agile, Testing, Performance Optimization</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificates Section -->
+    <section class="py-20 bg-gray-900/50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-12 text-center text-indigo-500" data-aos="fade-down">Certificates</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Certificate 1 -->
+                <div class="bg-gray-800/50 rounded-lg overflow-hidden border border-indigo-500/30 transform hover:scale-105 transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/20"
+                    data-aos="fade-up">
+                    <img src="./assets/c1.png" alt="Web Development Certificate" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-indigo-400">Web Development</h3>
+                        <p class="text-gray-400 mb-4">Interactivity with JavaScript</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 text-sm bg-indigo-500/20 text-indigo-300 rounded">HTML/CSS</span>
+                            <span class="px-2 py-1 text-sm bg-indigo-500/20 text-indigo-300 rounded">JavaScript</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-400">Issued: Jan 2024</span>
+                            <a target="_blank"
+                                href="https://www.coursera.org/account/accomplishments/verify/GFZAL78XLD9C?utm_source=link&utm_medium=certificate&utm_content=cert_image&utm_campaign=sharing_cta&utm_product=course"
+                                class="text-indigo-400 hover:text-indigo-300">View Certificate</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-800/50 rounded-lg overflow-hidden border border-indigo-500/30 transform hover:scale-105 transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/20"
+                    data-aos="fade-up">
+                    <img src="./assets/c2.png" alt="Web Development Certificate" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-indigo-400">Web Development</h3>
+                        <p class="text-gray-400 mb-4">Interactivity with CSS3</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 text-sm bg-indigo-500/20 text-indigo-300 rounded">HTML/CSS</span>
+                            <span class="px-2 py-1 text-sm bg-indigo-500/20 text-indigo-300 rounded">JavaScript</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-400">Issued: Jan 2024</span>
+                            <a target="_blank"
+                                href="https://www.coursera.org/account/accomplishments/verify/EJM2269U3QSA?utm_source=link&utm_medium=certificate&utm_content=cert_image&utm_campaign=sharing_cta&utm_product=course"
+                                class="text-indigo-400 hover:text-indigo-300">View Certificate</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-800/50 rounded-lg overflow-hidden border border-indigo-500/30 transform hover:scale-105 transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/20"
+                    data-aos="fade-up">
+                    <img src="./assets/c3.png" alt="Web Development Certificate" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-indigo-400">Web Development</h3>
+                        <p class="text-gray-400 mb-4">Introduction to HTML5</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 text-sm bg-indigo-500/20 text-indigo-300 rounded">HTML/CSS</span>
+                            <span class="px-2 py-1 text-sm bg-indigo-500/20 text-indigo-300 rounded">JavaScript</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-400">Issued: Jan 2024</span>
+                            <a target="_blank"
+                                href="https://www.coursera.org/account/accomplishments/verify/CFM27XX3CRVB?utm_source=link&utm_medium=certificate&utm_content=cert_image&utm_campaign=sharing_cta&utm_product=course"
+                                class="text-indigo-400 hover:text-indigo-300">View Certificate</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certificate 2 -->
+                <div class="bg-gray-800/50 rounded-lg overflow-hidden border border-indigo-500/30 transform hover:scale-105 transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/20"
+                    data-aos="fade-up" data-aos-delay="100">
+                    <img src="./assets/c5.png" alt="Cloud Computing Certificate" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-indigo-400">Cloud Computing</h3>
+                        <p class="text-gray-400 mb-4">Introduction to Cloud by IBM</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 text-sm bg-indigo-500/20 text-indigo-300 rounded">Cloud</span>
+                            <span class="px-2 py-1 text-sm bg-indigo-500/20 text-indigo-300 rounded">IBM</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-400">Issued: Dec 2023</span>
+                            <a target="_blank"
+                                href="https://courses.edx.org/certificates/dc634aaf2d10435695944835afd0da9b"
+                                class="text-indigo-400 hover:text-indigo-300">View Certificate</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certificate 3 -->
+                <div class="bg-gray-800/50 rounded-lg overflow-hidden border border-indigo-500/30 transform hover:scale-105 transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/20"
+                    data-aos="fade-up" data-aos-delay="200">
+                    <img src="./assets/c6.png" alt="Python Certificate" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-indigo-400">Python</h3>
+                        <p class="text-gray-400 mb-4">The Joy of Computing Using Python by NPTEL</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 text-sm bg-indigo-500/20 text-indigo-300 rounded">Python</span>
+                            <span class="px-2 py-1 text-sm bg-indigo-500/20 text-indigo-300 rounded">NPTEL</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-400">Issued: Nov 2023</span>
+                            <a href="#" class="text-indigo-400 hover:text-indigo-300">View Certificate</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-800/50 rounded-lg overflow-hidden border border-indigo-500/30 transform hover:scale-105 transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/20"
+                    data-aos="fade-up" data-aos-delay="200">
+                    <img src="./assets/c4.png" alt="Python Certificate" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-indigo-400">Extra Topic</h3>
+                        <p class="text-gray-400 mb-4">Learning How to Learn</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 text-sm bg-indigo-500/20 text-indigo-300 rounded">Learning</span>
+                            <span class="px-2 py-1 text-sm bg-indigo-500/20 text-indigo-300 rounded">How to Learn</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-400">Issued: Nov 2023</span>
+                            <a target="_blank"
+                                href="https://www.coursera.org/account/accomplishments/verify/T6659XG579SB?utm_source=link&utm_medium=certificate&utm_content=cert_image&utm_campaign=sharing_cta&utm_product=course"
+                                class="text-indigo-400 hover:text-indigo-300">View Certificate</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-12 text-center text-indigo-500" data-aos="fade-down">Professional
+                Experience</h2>
+            <div class="max-w-3xl mx-auto">
+                <!-- Timeline Item 1 -->
+                <div class="relative pl-8 pb-12" data-aos="fade-up">
+                    <!-- Timeline line -->
+                    <div class="absolute left-0 top-0 h-full w-px bg-indigo-500/30"></div>
+
+                    <!-- Timeline dot -->
+                    <div
+                        class="absolute left-0 top-0 w-6 h-6 -ml-3 rounded-full bg-gray-900 border-2 border-indigo-500 flex items-center justify-center">
+                        <svg class="w-3 h-3 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                    </div>
+
+                    <!-- Content -->
+                    <div
+                        class="bg-gray-800/50 p-6 rounded-lg border border-indigo-500/30 hover:shadow-lg hover:shadow-indigo-500/20 transition-all duration-300">
+                        <span class="text-indigo-400 font-semibold">2023 - Present</span>
+                        <h3 class="text-xl font-bold mt-2 text-gray-200">Software Engineer</h3>
+                        <h4 class="text-gray-400 mt-1">GrowExx</h4>
+                        <p class="text-gray-300 mt-3">• Currently working as Software Engineer at GrowExx for last 10
+                            months.
+                        </p>
+                        <p class="text-gray-300 mt-3">• Work on multiple projects at there like purply which is as app
+                            for sharing reaction of user whene replying to message.</p>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 3 -->
+                <div class="relative pl-8" data-aos="fade-up" data-aos-delay="200">
+                    <div class="absolute left-0 top-0 h-full w-px bg-indigo-500/30"></div>
+                    <div
+                        class="absolute left-0 top-0 w-6 h-6 -ml-3 rounded-full bg-gray-900 border-2 border-indigo-500 flex items-center justify-center">
+                        <svg class="w-3 h-3 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                    </div>
+                    <div
+                        class="bg-gray-800/50 p-6 rounded-lg border border-indigo-500/30 hover:shadow-lg hover:shadow-indigo-500/20 transition-all duration-300">
+                        <span class="text-indigo-400 font-semibold">May 2022 - Jul 2022</span>
+                        <h3 class="text-xl font-bold mt-2 text-gray-200">SDE Intern</h3>
+                        <h4 class="text-gray-400 mt-1">OpsHub, Inc., Internship</h4>
+                        <p class="text-gray-300 mt-3">• Migrated the code-base from Java 8 to Java 11 by upgrading the
+                            dependencies and removing deprecated libraries using Apache Maven.</p>
+                        <p class="text-gray-300 mt-3">• Debugged the errors after migration to Java 11.</p>
+                        <p class="text-gray-300 mt-3">• Tested the code using integration and unit testing via TestNG.
+                        </p>
+                        <p class="text-gray-300 mt-3">• Ran test automation using Jenkins and evaluated the reports.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-8 text-center text-indigo-500" data-aos="fade-down">Get in Touch</h2>
+            <form class="max-w-lg mx-auto space-y-6 bg-gray-800/50 p-8 rounded-lg border border-indigo-500/30"
+                data-aos="fade-up">
+                <div class="transform transition-all duration-300 hover:translate-x-0.5">
+                    <input type="text" placeholder="Name"
+                        class="w-full px-4 py-2 bg-gray-900 rounded-lg border border-indigo-500/30 focus:border-indigo-500 focus:outline-none">
+                </div>
+                <div class="transform transition-all duration-300 hover:translate-x-0.5">
+                    <input type="email" placeholder="Email"
+                        class="w-full px-4 py-2 bg-gray-900 rounded-lg border border-indigo-500/30 focus:border-indigo-500 focus:outline-none">
+                </div>
+                <div class="transform transition-all duration-300 hover:translate-x-0.5">
+                    <textarea placeholder="Message" rows="4"
+                        class="w-full px-4 py-2 bg-gray-900 rounded-lg border border-indigo-500/30 focus:border-indigo-500 focus:outline-none"></textarea>
+                </div>
+                <button type="submit"
+                    class="w-full bg-indigo-500 py-2 rounded-lg hover:bg-indigo-600 transition-all transform hover:scale-105">
+                    Send Message
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 border-t border-indigo-500/30">
+        <div class="container mx-auto px-6 text-center">
+            <div class="flex justify-center space-x-8 mb-4">
+                <a href="https://www.linkedin.com/in/nirbhayparmar/"
+                    class="text-gray-400 hover:text-indigo-500 transition-all transform hover:scale-110">LinkedIn</a>
+                <a href="https://github.com/Nirbhayparmar"
+                    class="text-gray-400 hover:text-indigo-500 transition-all transform hover:scale-110">GitHub</a>
+                <a href="mailto:niravnirbhay94@gmail.com"
+                    class="text-gray-400 hover:text-indigo-500 transition-all transform hover:scale-110">Email</a>
+            </div>
+            <p class="text-gray-500">© 2025 Nirbhay Parmar. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scroll to top button -->
+    <button id="scrollToTop"
+        class="fixed bottom-8 right-8 bg-indigo-500 text-white w-12 h-12 rounded-full opacity-0 transition-opacity duration-300 hover:bg-indigo-600 hidden">
+        ↑
+    </button>
+    <script src="./script.js"></script>
+</body>
+
+</html>
