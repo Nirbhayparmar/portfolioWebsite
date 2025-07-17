@@ -95,7 +95,7 @@ class GameOfLife {
 	animate() {
 		this.update();
 		this.draw();
-		setTimeout(() => requestAnimationFrame(() => this.animate()), 120); // Slower speed for subtlety
+		setTimeout(() => requestAnimationFrame(() => this.animate()), 230); // Slower speed for subtlety
 	}
 
 	addTouchEvent() {
